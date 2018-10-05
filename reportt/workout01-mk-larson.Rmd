@@ -1,0 +1,30 @@
+---
+title: "workout01-mk-larson.Rmd"
+author: "mklarson"
+date: "October 4, 2018"
+output: github_document
+---
+```{r}
+library(ggplot2)
+ranks <- ggplot(data = teams) + aes(reorder(x = teams$team, teams$salary), y = teams$salary) + geom_bar( stat = 'identity') + labs(x = "Team", y = "Salary in Millions", title = "NBA teams ranked by Total Salary") + coord_flip() + geom_vline(xintercept = mean(teams$salary), color = "blue")
+
+team_points <- ggplot(data = teams) + aes(reorder(x = teams$team, teams$points), y = teams$points) + geom_bar( stat = 'identity') + labs(x = "Team", y = "Total Points", title = "NBA teams ranked by Total Points") + coord_flip() + geom_vline(xintercept = mean(teams$points), color = "blue")
+
+ranks_efficiency <- ggplot(data = teams) + aes(reorder(x = teams$team, teams$efficiency_index), y = teams$efficiency_index) + geom_bar(stat = 'identity') + labs(x = "Team", y = "Efficiency Index", title = "NBA teams ranked by Efficiency") + coord_flip() + geom_vline(xintercept = mean(teams$efficiency_index), color = "blue")
+
+#My own index which I will use to calculate the rankings is something I call rebounding skills. It ranks them by the total rebounds (off_rebounds + def_rebounds). As someone who grew up playing basketball, I know how important rebounds are to a team seeing success. 
+
+ranks_rebounds <- ggplot(data = teams) +aes(reorder(x = teams$team, teams$total_rebounds), y = teams$total_rebounds) + geom_bar(stat = 'identity') + labs(x = "Team", y = "total rebounds", title = "Nba teams ranked by total rebounds skills") + coord_flip() + geom_vline(xintercept = mean(teams$total_rebounds), color = "blue")
+```
+
+## Comments and Reflections
+* This was indeed my first time working with a file of such structure. It was a little bit difficult to get the hang of at first, but eventually I understood.
+* This was not my first time using relative paths, I have done so in CS61A
+* This was my first time using an R script
+* I really enjoyed just writing code over having to include markdown syntax
+* This was not easy, especially since we haven't done anything this complex in lab or lecture
+* No one helped me complete the assignment
+* This homework took over 6 hours to complete
+* The most time consuming part was getting everything in the right path, and in github
+* I did enjoy learning more about github and how helpful it can be 
+
